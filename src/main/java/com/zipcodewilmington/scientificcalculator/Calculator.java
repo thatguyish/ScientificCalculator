@@ -12,6 +12,10 @@ public class Calculator {
         onDisplay = String.valueOf(val);
     }
 
+    public void clearDisplay(){
+        updateCalculator(0.0);
+    }
+
     public static void calculate(String operator,double val){
         switch (operator){
             case "addition":

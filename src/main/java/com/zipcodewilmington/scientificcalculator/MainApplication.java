@@ -16,6 +16,9 @@ public class MainApplication {
             String userInput = Console.getStringInput("Enter an Operation");
 
             switch (userInput){
+                case "clear":
+                    calculator.clearDisplay();
+                    break;
                 case "add":
                     Double numberToAdd = Console.getDoubleInput("Enter a number to add");
                     Calculator.calculate("addition",numberToAdd);
@@ -24,6 +27,7 @@ public class MainApplication {
                     Double numberToSubtract = Console.getDoubleInput("Enter a number to subtract");
                     Calculator.calculate("subtraction",numberToSubtract);
                     break;
+
             }
 //            String s = Console.getStringInput("Enter a string");
 //            Integer i = Console.getIntegerInput("Enter an integer");
