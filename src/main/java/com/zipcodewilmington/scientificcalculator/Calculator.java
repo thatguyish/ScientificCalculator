@@ -15,13 +15,18 @@ public class Calculator {
     public static void calculate(String operator,double val){
         switch (operator){
             case "addition":
-                Double sum = val + Double.parseDouble(onDisplay);
+                Double sum = Double.parseDouble(onDisplay) + val;
                 updateCalculator(sum);
                 break;
+            case "subtraction":
+                Double subtractedVal = Double.parseDouble(onDisplay) - val;
+                updateCalculator(subtractedVal);
+                break;
+
         }
     }
 
-    public static void showDisplay(){
+    public void showDisplay(){
         System.out.println(onDisplay);
     }
 }

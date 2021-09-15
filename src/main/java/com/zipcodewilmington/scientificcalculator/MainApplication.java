@@ -12,15 +12,17 @@ public class MainApplication {
         Console.println("Welcome to my calculator!");
         while(calculator.isActive){
             calculator.showDisplay();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter an Operation");
-            String userInput = scanner.nextLine();
+
+            String userInput = Console.getStringInput("Enter an Operation");
 
             switch (userInput){
                 case "add":
                     Double numberToAdd = Console.getDoubleInput("Enter a number to add");
-                    calculator.calculate("addition",numberToAdd);
-
+                    Calculator.calculate("addition",numberToAdd);
+                    break;
+                case "subtract":
+                    Double numberToSubtract = Console.getDoubleInput("Enter a number to subtract");
+                    Calculator.calculate("subtraction",numberToSubtract);
                     break;
             }
 //            String s = Console.getStringInput("Enter a string");
@@ -31,6 +33,5 @@ public class MainApplication {
 //            Console.println("The user input %s as a integer", i);
 //            Console.println("The user input %s as a d", d);
         }
-
     }
 }
