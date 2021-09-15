@@ -8,7 +8,7 @@ public class Calculator {
 
     public boolean isActive = true;
 
-    public static void updateCalculator(Double val){
+    public void updateCalculator(Double val){
         onDisplay = String.valueOf(val);
     }
 
@@ -16,7 +16,7 @@ public class Calculator {
         updateCalculator(0.0);
     }
 
-    public static void calculate(String operator,double val){
+    public void calculate(String operator,double val){
         switch (operator){
             case "addition":
                 Double sum = Double.parseDouble(onDisplay) + val;
@@ -25,6 +25,10 @@ public class Calculator {
             case "subtraction":
                 Double subtractedVal = Double.parseDouble(onDisplay) - val;
                 updateCalculator(subtractedVal);
+                break;
+            case "multiplication":
+                Double multipliedVal = Double.parseDouble(onDisplay) * val;
+                updateCalculator(multipliedVal);
                 break;
 
         }
