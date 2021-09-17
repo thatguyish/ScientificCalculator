@@ -40,7 +40,8 @@ public class MainApplication {
             //all available commands/ operations
             switch (userInput){
                 case "power off":
-                    calculator.setIsActive(false);
+                    calculator.shutDown();
+                    break;
                 case "number":
                     calculator.updateCalculator(numberInput);
                     break;

@@ -18,15 +18,29 @@ public class Calculator {
     //value representing the display
     private String onDisplay = "0";
 
+    private void setOnDisplay(String displayVal){
+        this.onDisplay = displayVal;
+    }
+
+    private String getOnDisplay(){
+        return this.onDisplay;
+    }
+
     //display the value in the display property
     public void showDisplay(){
-        System.out.println(onDisplay);
+        System.out.println(this.getOnDisplay());
+    }
+
+    //clears the calculators display
+    public void clearDisplay(){
+        this.updateCalculator(0d);
+        this.error = false;
     }
 
 //    private String mode = ["binary"]
 
     //some memory for the calculator to store a value
-    private Double memory = 0d;
+    private double memory = 0d;
 
     //property defining activity
     private boolean isActive = true;
@@ -37,8 +51,8 @@ public class Calculator {
     }
 
     //sets isActive property
-    public void setIsActive(boolean activeness){
-        this.isActive = false;
+    private void setIsActive(boolean activeness){
+        this.isActive = activeness;
     }
 
     //update calculator display
@@ -46,54 +60,52 @@ public class Calculator {
         if (Double.isNaN(val) || Double.isInfinite(val)){
             this.errorCalculator();
         }else{
-            this.onDisplay = String.valueOf(val);
+            this.setOnDisplay(String.valueOf(val));
         }
     }
 
-    //clears the calculators display
-    public void clearDisplay(){
-        this.updateCalculator(0d);
-        this.error = false;
+    //Shuts down calculator
+    public void shutDown(){
+        this.setOnDisplay("Powering Off");
+        this.setIsActive(false);
     }
-
-
 
     //calculates and updates display
     public void calculate(String operator,double val){
-        double valOnCalc = Double.parseDouble(this.onDisplay);
+        double valOnCalc = Double.parseDouble(this.getOnDisplay());
 
         switch (operator){
             case "addition":
-                Double sum = valOnCalc + val;
+                double sum = valOnCalc + val;
                 updateCalculator(sum);
                 break;
             case "subtraction":
-                Double subtractedVal = valOnCalc - val;
+                double subtractedVal = valOnCalc - val;
                 updateCalculator(subtractedVal);
                 break;
             case "multiplication":
-                Double multipliedVal = valOnCalc * val;
+                double multipliedVal = valOnCalc * val;
                 updateCalculator(multipliedVal);
                 break;
             case "division":
-                Double dividedVal = valOnCalc/val;
+                double dividedVal = valOnCalc/val;
                 updateCalculator(dividedVal);
                 break;
             case "squareroot":
-                Double squareRootedVal = Math.sqrt(valOnCalc);
+                double squareRootedVal = Math.sqrt(valOnCalc);
                 updateCalculator(squareRootedVal);
                 break;
             case "square":
             case "exponentiation":
-                Double exponentiatedVal = Math.pow(valOnCalc,val);
+                double exponentiatedVal = Math.pow(valOnCalc,val);
                 updateCalculator(exponentiatedVal);
                 break;
             case "inverse":
-                Double inversedVal = 1/valOnCalc;
+                double inversedVal = 1/valOnCalc;
                 updateCalculator(inversedVal);
                 break;
             case "invert":
-                Double invertedVal = valOnCalc*-1;
+                double invertedVal = valOnCalc*-1;
                 updateCalculator(invertedVal);
                 break;
             default:
