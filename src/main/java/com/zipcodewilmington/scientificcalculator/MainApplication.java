@@ -24,7 +24,7 @@ public class MainApplication {
 
             //Enter command/ value/ operation in text form
             String userInput = Console.getStringInput("Enter an Operation/Command/or Number");
-            Double numberInput = 0d;
+            double numberInput = 0d;
 
             //check if value is a number
             if (matches.reset(userInput).matches()){
